@@ -1,6 +1,6 @@
 ﻿namespace Core.Utils;
 
-public class ArgumentUtils
+public static class ArgumentUtils
 {
     public static Dictionary<string, List<string>> Parse(IEnumerable<string> args)
     {

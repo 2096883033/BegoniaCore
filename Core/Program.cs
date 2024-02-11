@@ -1,4 +1,5 @@
-﻿using Core.Utils;
+﻿using Core.Executors;
+using Core.Utils;
 
 namespace Core;
 
@@ -6,6 +7,7 @@ class Program
 {
     private static void Main(string[] args)
     {
-        ArgumentUtils.Parse(args);
+        var argumentDictionary = ArgumentUtils.Parse(args);
+        CommandExecutor.Exec(argumentDictionary);
     }
 }
