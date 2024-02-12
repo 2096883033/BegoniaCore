@@ -5,33 +5,30 @@ using Core.Commands;
 using Core.Interfaces;
 using Core.Utils;
 
-namespace Core.Executors;
+namespace Core.Controllers;
 
-public static class CommandExecutor
+public static class CommandController
 {
     private static readonly Dictionary<CommandInfo, ICommand> Commands;
     
-    static CommandExecutor()
+    static CommandController()
     {
         Commands = LoadCommands();
     }
 
     private static Dictionary<CommandInfo, ICommand> LoadCommands()
     {
-        var types = ReflectionUtils.GetSubType(typeof(InfoCommand));
         var commands = new Dictionary<CommandInfo, ICommand>();
         
-        foreach (var type in types)
+        foreach (var pair in ReflectionUtils.GetSubTypeWithAttribute(typeof(CommandInfo), typeof(ICommand)))
         {
-            var commandInfoType = type.GetCustomAttribute(typeof(CommandInfo));
-            if (commandInfoType == null)
+            if (pair.Key is not CommandInfo commandInfo)
                 continue;
 
-            var commandInfo = (CommandInfo)commandInfoType;
             if (!commandInfo.Enable)
                 continue;
-
-            var obj = Activator.CreateInstance(type);
+            
+            var obj = Activator.CreateInstance(pair.Value);
             if (obj is not ICommand command)
                 continue;
             

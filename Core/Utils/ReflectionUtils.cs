@@ -20,4 +20,22 @@ public static class ReflectionUtils
         var types = GetAllClass();
         return types.Where(type.IsAssignableFrom);
     }
+
+    public static Dictionary<Attribute, Type> GetSubTypeWithAttribute(Type attribute, Type subType)
+    {
+        Dictionary<Attribute, Type> dictionary = new();
+        
+        var types = GetSubType(subType);
+        
+        foreach (var type in types)
+        {
+            var attributeType = type.GetCustomAttribute(attribute);
+            if (attributeType == null)
+                continue;
+            
+            dictionary.Add(attributeType, type);
+        }
+
+        return dictionary;
+    }
 }
