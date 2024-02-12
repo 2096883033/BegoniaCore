@@ -13,7 +13,7 @@ public class InfoCommand : ICommand
         Console.WriteLine();
         Console.WriteLine("Name: Begonia Core 海棠核心");
         Console.WriteLine("Version: 1");
-        Console.WriteLine("Github: https://github.com/YaeMonilc/BegoniaCore");
+        Console.WriteLine("Github: https://github.com/AyamenoStudio/BegoniaCore");
         Console.WriteLine("--------------------------------------------");
     }
 }
