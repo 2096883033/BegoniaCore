@@ -13,7 +13,7 @@
 
     <ItemGroup>
       <Folder Include="Entities\" />
-      <Folder Include="Generators\" />
+      <Folder Include="Translators\" />
     </ItemGroup>
 
 </Project>
