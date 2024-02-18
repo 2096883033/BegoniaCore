@@ -6,16 +6,11 @@ namespace Core.Controllers;
 
 public static class TranslatorController
 {
-    private static readonly Dictionary<TranslatorInfo, ITranslator> Ttranslators;
+    private static readonly Dictionary<TranslatorInfo, ITranslator> Ttranslators = new ();
 
-    static TranslatorController()
+    public static void LoadTranslators()
     {
-        Ttranslators = LoadTranslators();
-    }
-
-    private static Dictionary<TranslatorInfo, ITranslator> LoadTranslators()
-    {
-        Dictionary<TranslatorInfo, ITranslator> translators = new();
+        Ttranslators.Clear();
         
         foreach (var pair in ReflectionUtils.GetSubTypeWithAttribute(typeof(TranslatorInfo), typeof(ITranslator)))
         {
@@ -29,10 +24,8 @@ public static class TranslatorController
             if (obj is not ITranslator translator)
                 continue;
             
-            translators.Add(translatorInfo, translator);
+            Ttranslators.Add(translatorInfo, translator);
         }
-
-        return translators;
     }
 
     public static ITranslator? GetTranslatorByName(string name)
