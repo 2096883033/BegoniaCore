@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{EC448711-BA9D-41A9-9659-BF63BA04F1A0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gradle", "Gradle\Gradle.csproj", "{49FA70CA-D2CC-46EB-A090-6EB1B655239D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{EC448711-BA9D-41A9-9659-BF63BA04F1A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EC448711-BA9D-41A9-9659-BF63BA04F1A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EC448711-BA9D-41A9-9659-BF63BA04F1A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49FA70CA-D2CC-46EB-A090-6EB1B655239D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49FA70CA-D2CC-46EB-A090-6EB1B655239D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49FA70CA-D2CC-46EB-A090-6EB1B655239D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49FA70CA-D2CC-46EB-A090-6EB1B655239D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
