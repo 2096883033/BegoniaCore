@@ -9,16 +9,11 @@ namespace Core.Controllers;
 
 public static class CommandController
 {
-    private static readonly Dictionary<CommandInfo, ICommand> Commands;
-    
-    static CommandController()
-    {
-        Commands = LoadCommands();
-    }
+    private static readonly Dictionary<CommandInfo, ICommand> Commands = new ();
 
-    private static Dictionary<CommandInfo, ICommand> LoadCommands()
+    public static void LoadCommands()
     {
-        var commands = new Dictionary<CommandInfo, ICommand>();
+        Commands.Clear();
         
         foreach (var pair in ReflectionUtils.GetSubTypeWithAttribute(typeof(CommandInfo), typeof(ICommand)))
         {
@@ -32,10 +27,8 @@ public static class CommandController
             if (obj is not ICommand command)
                 continue;
             
-            commands.Add(commandInfo, command);
+            Commands.Add(commandInfo, command);
         }
-
-        return commands;
     }
     
     public static void Exec(Dictionary<string, List<string>> argumentDictionary)
